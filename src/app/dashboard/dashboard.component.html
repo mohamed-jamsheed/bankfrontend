@@ -1,0 +1,94 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <div class="col-lg-10">
+            <a class="navbar-brand text-primary" routerLink="/">
+                <i class="fa-solid fa-building-columns"></i>
+                &nbsp;
+>
+                    <span>Online Banking App</span>
+
+    </a>
+      </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+         
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Services
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasDeposit">Deposit(own Account) </a></li>
+
+              <li><a class="dropdown-item" href="#">Fund Transfer</a></li>
+              <li><a class="dropdown-item" (click)="getBalance()" data-bs-toggle="offcanvas" href="#offcanvasExample">Balance Enquiry</a></li>
+              <li><a class="dropdown-item" href="#">Mini Statement</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#"><i class="fa fa-solid fa-trash"></i>My Account</a></li>
+              <li><a class="dropdown-item" href="#"><i class="fa fa-solid fa-right-from-bracket"></i>Sign Out</a></li>
+            </ul>
+          </li>
+        
+        </ul>
+    
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- dashboard design -->
+
+  <div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h1 style="margin-top: 100px;">Welcome {{user}}</h1>
+            <label class="mt-2" style="text-align: justify;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque, atque nihil enim alias quasi natus. Facere velit, iure harum sunt non rem autem omnis doloremque odio debitis tempora esse perferendis. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias illo debitis itaque exercitationem corrupti dicta earum laboriosam enim deserunt ducimus officiis sit mollitia maiores distinctio, aperiam expedita excepturi odio repellat?
+            </label>
+            <div style="text-align: justify;" class="collapse" id="collapseExample">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos earum minus enim temporibus illo est nihil ut, at in quod aliquid quasi laboriosam eaque ab libero deserunt, obcaecati corporis praesentium!
+              </div>
+              <button (click)="collapse()" class="btn btn-primary mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+               Read <span *ngIf="isCollapse">More</span>
+               <span *ngIf="!isCollapse">Less</span>
+              </button>
+        </div>
+        <div class="col-md-8"></div>
+    </div>
+  </div>
+
+  <!-- offcanvas - balance enquiry -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasExampleLabel">Balance Enquiry</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div><img width="200px" src="https://www.nicepng.com/png/detail/881-8812006_png-file-svg-account-balance-png.png" alt="balance image"></div>
+      <div style="margin-top: 100px;">
+        <h5>Dear {{user}}</h5>
+        <label for="">Your Current Account Balance is <b>{{balance}}</b></label>
+      </div>
+     
+    </div>
+  </div>
+
+  <!-- offcanvas - deposit -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasDeposit" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+      <h2 class="offcanvas-title" id="offcanvasExampleLabel">Deposit Form</h2>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div><img width="200px" src="https://cdn2.iconfinder.com/data/icons/finance-and-banking-1-2/64/43-512.png" alt="deposit image"></div>
+      <div style="margin-top: 60px;">
+        <h5>Dear {{user}}, you can enter the amount to be deposit in your account</h5>
+       <form class="mt-2 border p-2">
+          <input type="text" class="form-control" placeholder="Enter Amount">
+          <button class="btn btn-primary">Deposit </button>
+       </form>
+</div>
+     
+    </div>
+  </div>

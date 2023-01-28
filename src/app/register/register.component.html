@@ -1,0 +1,47 @@
+<app-header></app-header>
+<div class="container mt-2">
+    <h2>Register Form</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam laudantium ut quaerat quia. Odit cum ratione rem eveniet! Eius doloribus modi cupiditate neque unde dolores reprehenderit mollitia quo eaque aspernatur! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci sit cupiditate quae quasi rem blanditiis, autem distinctio amet minima temporibus. Necessitatibus sapiente veniam, ut doloremque unde id libero aperiam enim! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas optio molestias sed incidunt omnis modi accusantium nulla quam cupiditate enim maxime, quasi sequi qui ab asperiores delectus quia, repellat nobis! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, veritatis laudantium! Sequi eos, ut ea soluta error tenetur quas minima ratione assumenda aspernatur adipisci odit officiis quam commodi, placeat facere!</p>
+    
+    <div class="row mt-3 mb-3">
+        <div class="col-4 mt-2 text-center">
+            <img style="width: 300px;" src="https://www.kindpng.com/picc/m/130-1300287_transparent-customer-icon-png-flat-user-icon-png.png" alt="register image">
+            <br>
+            <button class="btn btn-warning mt-2">Back</button>
+        </div>
+        <div class="col-8">
+            <form (ngSubmit)="register()" [formGroup]="registerForm" class="border p-5 mt-5 me-5">
+                
+                <div class="form-floating mb-2">
+                    <input name="uname" formControlName="uname" type="text" class="form-control" id="floatingInput" placeholder="Username">
+                    <label for="floatingInput">Username</label>
+                  </div>
+                  <!-- invalid acno -->
+                  <div *ngIf="this.registerForm.get('uname')?.errors&&this.registerForm.get('uname')?.touched" class="text-danger mb-2">Invalid Username</div>
+
+                <div class="form-floating mb-2">
+                    <input name="acno" formControlName="acno" type="text" class="form-control" id="floatingInput" placeholder="Account Number">
+                    <label for="floatingInput">Account Number</label>
+                  </div>
+                  <!-- invalid acno -->
+                  <div *ngIf="this.registerForm.get('acno')?.errors&&this.registerForm.get('acno')?.touched" class="text-danger mb-2">Invalid Account Number</div>
+    
+                  <div class="form-floating mb-2">
+                    <input name="pswd" formControlName="pswd" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword">Password</label>
+                  </div>
+                   <!-- invalid pswd -->
+                   <div *ngIf="this.registerForm.get('pswd')?.errors&&this.registerForm.get('pswd')?.touched" class="text-danger mb-2">Invalid Password</div>
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-primary">
+                        Register
+                    </button>
+                    &nbsp;
+                    <span>
+                        Already a User? Click Here to <a routerLink="/">Login</a>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
